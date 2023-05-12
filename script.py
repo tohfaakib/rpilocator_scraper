@@ -59,8 +59,6 @@ def get_stock_data(country, cat):
         headers=headers
     )
 
-    print(response.text)
-    print(response.status_code)
 
     for item in response.json()['data']:
         if item['avail'] == 'Yes':
