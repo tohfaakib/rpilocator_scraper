@@ -1,5 +1,5 @@
 # Use the official Python image for ARM architecture (Raspberry Pi)
-FROM python:3.7.3-slim-stretch
+FROM python:3.10-slim-buster
 
 # Set the working directory in the container
 WORKDIR /app
