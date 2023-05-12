@@ -48,7 +48,7 @@ def get_stock_data(country, cat):
         'method': 'getProductTable',
         'token': token,
         'country': country,
-        'cat': ','.join(cat),
+        'cat': cat,
         '_': '1683866351466',
     }
 
@@ -59,6 +59,9 @@ def get_stock_data(country, cat):
         headers=headers
     )
 
+    print(response.text)
+    print(response.status_code)
+
     for item in response.json()['data']:
         if item['avail'] == 'Yes':
             message = f"Product available: {item['description']}\nPrice: {item['price']['display']} {item['price']['currency']}\nLink: {item['link']}"
@@ -66,10 +69,10 @@ def get_stock_data(country, cat):
 
 
 if __name__ == '__main__':
-    cat = ['PI3', 'PI4', 'PIZERO', 'PIZERO2']
+    cat = os.getenv("CATEGORY")
     country = os.getenv("COUNTRY")
     wait_time = int(os.getenv("WAIT_TIME"))
     while True:
         get_stock_data(country, cat)
-        # time.sleep(60 * 5)
+        print(f"Sleeping for {wait_time} seconds")
         time.sleep(wait_time)
