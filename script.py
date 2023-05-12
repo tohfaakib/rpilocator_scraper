@@ -69,7 +69,8 @@ def get_stock_data(country, cat):
 if __name__ == '__main__':
     cat = ['PI3', 'PI4', 'PIZERO', 'PIZERO2']
     country = os.getenv("COUNTRY")
+    wait_time = int(os.getenv("WAIT_TIME"))
     while True:
         get_stock_data(country, cat)
         # time.sleep(60 * 5)
-        time.sleep(10)
+        time.sleep(wait_time)
