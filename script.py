@@ -62,8 +62,9 @@ def get_stock_data(country, cat):
 
     for item in response.json()['data']:
         if item['avail'] == 'Yes':
-            message = f"Product available: {item['description']}\nPrice: {item['price']['display']} {item['price']['currency']}\nLink: {item['link']}"
-            send_telegram_notification(message)
+            if "pishop" not in item['link']:
+                message = f"Product available: {item['description']}\nPrice: {item['price']['display']} {item['price']['currency']}\nLink: {item['link']}"
+                send_telegram_notification(message)
 
 
 if __name__ == '__main__':
