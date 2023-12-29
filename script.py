@@ -127,11 +127,11 @@ def get_job_data():
                 'sorters': [],
                 'pageSize': 100,
                 'geoQueryClause': {
-                    'lat': 48.19471,
-                    'lng': -122.1264,
+                    # 'lat': 48.19471,
+                    # 'lng': -122.1264,
 
-                    # 'lat': 34.10261,
-                    # 'lng': -117.43577,
+                    'lat': 34.10261,
+                    'lng': -117.43577,
 
                     'unit': 'mi',
                     'distance': 50,
